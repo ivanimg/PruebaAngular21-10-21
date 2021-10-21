@@ -1,1 +1,6 @@
-Lo bien que le sentaría a esta vista un listado de clientes
+<h3>Id - Nombre - Email</h3>
+<ul>
+    <li *ngFor="let custom of cliente">
+        <a [routerLink]="['/sale',custom.CustomerId]">{{custom.CustomerId}} - {{custom.Name}} - {{custom.EmailAddress}}</a>
+    </li>
+</ul>

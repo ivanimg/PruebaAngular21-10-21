@@ -1,0 +1,23 @@
+<table *ngIf="ventas">
+    <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td>{{cliente[0].Name}}</td>
+        <td>{{cliente[0].EmailAddress}}</td>
+    </tr>
+    <tr>
+        <th>Producto - Cantidad - Precio Total - Peso Total</th>
+    </tr>
+    <tr *ngFor="let venta of ventas">
+        <td *ngFor="let prod of venta">
+            {{producto[prod.ProductId-1].Name}} - {{prod.Units}} - {{producto[prod.ProductId-1].Price * prod.Units}} - {{producto[prod.ProductId-1].Weight * prod.Units}}
+        </td>
+    </tr>
+</table>
+<table *ngIf="ventas.length == 0">
+    <tr>
+        <td>No hay compras</td>
+    </tr>
+</table>

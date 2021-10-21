@@ -12,7 +12,7 @@ export class ProductService {
     list(): Observable<Product[]> {
         return new Observable<Product[]>(
             observable => {
-                const data: Product[] = [];
+                const data: Product[] = products;
                 observable.next(data);
             }
         );

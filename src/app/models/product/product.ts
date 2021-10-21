@@ -1,7 +1,8 @@
 export class Product {
     ProductId!: number;
     Name!: string;
-    Color!: string;
+    Price!: number;
+    Weight!: number;
 
     build(content: any): Product {
         Object.assign(this, content);

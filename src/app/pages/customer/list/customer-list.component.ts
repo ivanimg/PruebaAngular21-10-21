@@ -5,14 +5,19 @@ import { Customer } from 'src/app/models/customer/customer';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  selector: 'app-customer-list',
+  templateUrl: './customer-list.component.html',
+  styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
-  customers!: Customer[];
+  cliente:Customer[] = [];
 
-  constructor(customerService: CustomerService) { }
+  constructor(private _customerService: CustomerService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._customerService.list().subscribe(clientes =>{
+      console.log("cli", clientes);
+      this.cliente = clientes;
+    })
+  }
 }
